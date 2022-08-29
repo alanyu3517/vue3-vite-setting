@@ -4,6 +4,7 @@ import * as path from "path";
 import AutoImport from "unplugin-auto-import/vite";
 
 export default defineConfig({
+  base: './',
   plugins: [
     vue(),
     AutoImport({
@@ -22,27 +23,28 @@ export default defineConfig({
   },
   build: {
     minify: "terser",
-    assetsDir: "assets",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-    lib: {
-      entry: path.resolve(__dirname, "lib/main.js"),
-      name: "vue-test",
-      fileName: (format) => `vue-test.${format}.js`,
-    },
-    sourcemap: false,
-    rollupOptions: {
-      external: ["vue"],
-      output: {
-        globals: {
-          vue: "Vue",
-        },
-      },
-    },
+    // assetsDir: "assets",
+    // terserOptions: {
+    //   compress: {
+    //     drop_console: true,
+    //     drop_debugger: true,
+    //   },
+    // },
+    // lib: {
+    //   entry: path.resolve(__dirname, "src/main.ts"),
+    //   name: "vue-test",
+    //   fileName: (format) => `vue-test.${format}.js`,
+    // },
+    // sourcemap: false,
+    // rollupOptions: {
+    //   input: path.resolve(__dirname, "./index.html"),
+    //   external: ["vue"],
+    //   output: {
+    //     globals: {
+    //       vue: "Vue",
+    //     },
+    //   },
+    // },
   },
   server: {
     https: false,
@@ -50,13 +52,13 @@ export default defineConfig({
     port: 8081,
   },
   css: {
-    preprocessorOptions: {
-      scss: {
-        modifyVars: {},
-        javascriptEnabled: true,
-        charset: false,
-        additionalData: '@import "./src/styles/global.scss";',
-      },
-    },
+    // preprocessorOptions: {
+    //   scss: {
+    //     modifyVars: {},
+    //     javascriptEnabled: true,
+    //     charset: false,
+    //     additionalData: '@import "./src/styles/global.scss";',
+    //   },
+    // },
   },
 });
